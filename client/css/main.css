@@ -1,0 +1,95 @@
+header {
+    background: url('../img/wiz-top.png') no-repeat center center fixed;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, .5),
+      rgba(0, 0, 0, .5)),
+      url('../img/wiz-top.png');
+    height: 400px;
+    width: 100%;
+    box-shadow: inset 0px -10px 75px -10px #000;
+}
+
+.hero-container {
+    display: inline-block;
+    padding: 50px;
+    margin: 5px;
+    background-color: #C3E0EE;
+    border-radius: 10px;
+    border: 1px solid #B2D0DD;
+}
+
+.title {
+    display: inline;
+    position: absolute;
+    top: 150px;
+    left: 35%;
+    text-shadow: 1px 1px 1px #111;
+    color: #eee;
+}
+
+.container-custom {
+    padding: 7px;
+    text-align: center;
+    background-color: #D4F0FF;
+}
+
+.outline {
+    border: 3px solid #C3E0EE;
+    border-top: none;
+    border-radius: 5px;
+}
+
+.btn {
+    position: relative;
+    top: -5px;
+}
+
+.player {
+    color: #333;
+}
+
+.profileInfo {
+    font-size: 30px;
+    padding: 2em;
+}
+
+.userInfo {
+    font-size: 25px;
+}
+
+.invalid {
+    font-size: 20px;
+    color: red;
+}
+
+
+.wizard {
+    color: #000080;
+}
+.barbarian {
+    color: red;
+}
+.monk {
+    color: #CF5300;
+}
+.witch-doctor {
+    color: #006400;
+}
+.demon-hunter {
+    color: #800000;
+}
+.crusader {
+    color: #022E0F;
+}
+
+.navbar {
+    /*background-color: rgba(0, 0, 0, .08) ;*/
+}
+
+.navbar .nav > li > a {
+    color: #eee;
+    text-shadow: none;
+    font-size: 20px;
+    font-family: inherit;
+    text-shadow: 1px 1px 1px #111;
+}

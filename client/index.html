@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" ng-app="profileApp">
+  <head>
+    <title>D3 API stuff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="logo"></div>
+        </div>
+        
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <header>
+      <div class="title">
+        <h1 style="font-size: 60px;">Pretty Diablo Progress</h1>
+        <h2>Find profile information by battletag.</h2>
+      </div>
+    </header>
+    
+    
+    
+    <div ng-controller="ProfileController" class="container-custom outline" >
+      <h1 class="invalid" ng-show="invalid">Invalid Battletag!</h1>
+      <label>
+        <input type="text" ng-model="battletag" placeholder="Enter Battletag . . ."/>
+        <button class="btn btn-lg btn-primary" ng-click="getProfile(battletag)">Enter</button>
+      </label>
+      
+        
+        <div ng-show="show">
+          <h2 class="player">{{ data.battleTag }} of {{ data.guildName}}</h2>
+            <span class="profileInfo">
+              Paragon Level: {{ data.paragonLevel}}
+            </span>
+            <span class="profileInfo">
+              Paragon Level HC: {{ data.paragonLevelHardcore}}
+            </span>
+            <br>
+            <span class="profileInfo">
+              Paragon Level Season: {{ data.paragonLevelSeason}}
+            </span>
+            <span class="profileInfo">
+              Paragon Level Season HC: {{ data.paragonLevelSeasonHardcore }}
+            </span>
+        </div>
+        
+        <div ng-repeat="hero in data.heroes" class="hero-container">
+          <h2 class="{{ hero.class }}">{{ hero.name }} 
+          <span ng-show="{{ hero.seasonal }}">Seasonal</span>
+          <span ng-show="{{ hero.hardcore }}"></span>
+          </h2>
+          <h3>Level {{ hero.level }} <span class="{{ hero.class }}">{{ hero.class }}</span></h3>
+          <h4>{{ hero.kills.elites }} elites killed.</h4>
+        </div>
+    </div>
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/d3api.js"></script>
+  </body>
+</html>
