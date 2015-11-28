@@ -3,7 +3,8 @@
   <head>
     <title>D3 API stuff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="/css/main.css">
   </head>
@@ -15,14 +16,14 @@
         </div>
         
         <ul class="nav navbar-nav pull-right">
-          <li><a href="#">Link</a></li>
+          <li><a href="#" ng-click="loadLeaderboards()">Link</a></li>
         </ul>
       </div>
     </nav>
     
     <header>
       <div class="title">
-        <h1 style="font-size: 60px;">Pretty Diablo Progress</h1>
+        <h1 class="site-name">Pretty Diablo Stats</h1>
         <h2>Find profile information by battletag.</h2>
       </div>
     </header>
@@ -37,35 +38,39 @@
       </label>
       
         
-        <div ng-show="show">
-          <h2 class="player">{{ data.battleTag }} of {{ data.guildName}}</h2>
-            <span class="profileInfo">
-              Paragon Level: {{ data.paragonLevel}}
-            </span>
-            <span class="profileInfo">
-              Paragon Level HC: {{ data.paragonLevelHardcore}}
-            </span>
-            <br>
-            <span class="profileInfo">
-              Paragon Level Season: {{ data.paragonLevelSeason}}
-            </span>
-            <span class="profileInfo">
-              Paragon Level Season HC: {{ data.paragonLevelSeasonHardcore }}
-            </span>
+        <div ng-show="show" class="container">
+          <h1 class="player">{{ data.battleTag}} <span style="text-transform: none;">of</span> {{ data.guildName}}</h1>
+            <div class="row">
+              <div class="col-sm-3">
+                <p>Paragon: {{ data.paragonLevel}}</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Paragon HC: {{ data.paragonLevelHardcore}}</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Paragon Seasonal: {{ data.paragonLevelSeason}}</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Paragon Seasonal HC: {{ data.paragonLevelSeasonHardcore }}</p>
+              </div>
+            </div>
         </div>
         
-        <div ng-repeat="hero in data.heroes" class="hero-container">
-          <h2 class="{{ hero.class }}">{{ hero.name }} 
-          <span ng-show="{{ hero.seasonal }}">Seasonal</span>
-          <span ng-show="{{ hero.hardcore }}"></span>
+        <div ng-repeat="hero in display.heroes" class="hero-container">
+          <h2 class="{{ hero.class }} hero">{{ hero.name }} 
+          <span ng-show="hero.seasonal"><img src="/img/leaf-icon.png"></span>
+          <span ng-show="hero.hardcore">Hardcore</span>
           </h2>
-          <h3>Level {{ hero.level }} <span class="{{ hero.class }}">{{ hero.class }}</span></h3>
+          <h3>Level {{ hero.level }} <span class="{{ hero.class }} hero" style="text-transform: capitalize;">{{ hero.class }}</span></h3>
           <h4>{{ hero.kills.elites }} elites killed.</h4>
+        </div>
+        
+        <div class="foot">
         </div>
     </div>
     
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/d3api.js"></script>
   </body>

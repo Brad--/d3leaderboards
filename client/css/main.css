@@ -4,18 +4,46 @@ header {
       rgba(0, 0, 0, .5),
       rgba(0, 0, 0, .5)),
       url('../img/wiz-top.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     height: 400px;
     width: 100%;
     box-shadow: inset 0px -10px 75px -10px #000;
 }
 
+input[type="text"] {
+    padding: 11px;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+h1{
+    font-weight: bold;
+}
+p {
+    font-size: 150%;
+}
+
+.site-name {
+    font-size: 60px;
+}
+
 .hero-container {
+    text-align: center;
     display: inline-block;
+    width: 360px;
     padding: 50px;
     margin: 5px;
     background-color: #C3E0EE;
     border-radius: 10px;
     border: 1px solid #B2D0DD;
+}
+
+.hero {
+    text-shadow: 1px 1px 1px #222;
+    text-transform: capitalize;
 }
 
 .title {
@@ -41,11 +69,12 @@ header {
 
 .btn {
     position: relative;
-    top: -5px;
+    top: -1px;
 }
 
 .player {
     color: #333;
+    text-transform: capitalize;
 }
 
 .profileInfo {
@@ -79,17 +108,45 @@ header {
     color: #800000;
 }
 .crusader {
-    color: #022E0F;
+    color: #F2E699;
 }
 
 .navbar {
-    /*background-color: rgba(0, 0, 0, .08) ;*/
+    background-color: rgba(0,0,0,0);
+    z-index: 0;
+    border-color: rgba(0,0,0,0);
 }
 
 .navbar .nav > li > a {
     color: #eee;
-    text-shadow: none;
     font-size: 20px;
     font-family: inherit;
     text-shadow: 1px 1px 1px #111;
+}
+
+@media (max-width: 979px) {
+    header {
+        height: 400px;
+        width: 100%;
+        background-size: cover;
+    }
+    .navbar-fixed-top, .navbar-fixed-bottom {
+        position: fixed;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .nav > li > a {
+        padding-right: 50px;
+    }
 }
